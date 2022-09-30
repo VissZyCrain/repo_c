@@ -7,19 +7,25 @@
 
 Console.Clear();
 Console.WriteLine("Задача 35 ");
-int N=123;
-int[] a=new int[N];
-Random random=new Random();
-for(int i=0;i<a.Length;i++)
-a[i]=random.Next(0,10);
-for(int i=0;i<a.Length;i++)
-System.Console.Write($"{a[i],4}");
-
-int count=0;
-for(var i=0; i<a.Length;i++)
+int[] GetArray(int size, int leftRange, int rightRange)
 {
-if(i>10 && i<99)
-count++;
+    int[] arr = new int[size];
+    Random rand = new Random();
+    for (int i = 0; i < size; i++)
+    {
+        arr[i] = rand.Next(leftRange, rightRange + 1);
+    }
+    return arr;
 }
-System.Console.WriteLine();
-System.Console.WriteLine(count);
+int[] array = GetArray(123, 0, 151);
+Console.WriteLine(string.Join(",", array));
+int count = 0;
+for (int i = 0; i < array.Length; i++)
+{
+    if (array[i] > 10 && array[i] < 99)
+    {
+        count++;
+    }
+}
+Console.WriteLine($"Всего чисел {array.Length} ");
+Console.WriteLine("Количество чисел в диапазоне от 10 до 99 равно " + count);
