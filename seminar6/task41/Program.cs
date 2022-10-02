@@ -25,7 +25,6 @@ while (true)
     {
       countOfPositive++;
     }
-
   }
 }
 Console.WriteLine($"Количество чисел больше 0: "); 
